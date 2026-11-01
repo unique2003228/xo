@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Reem+Kufi:wght@400;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6950701807391900" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -49,7 +51,7 @@ body{
 .logo-rule{width:clamp(100px,26vmin,190px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:clamp(2px,1vmin,8px) 0 0}
 
 /* ================================================================
-   أزرار فاخرة
+   الأزرار الفاخرة
 ================================================================ */
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;
   font-family:'Reem Kufi','Tajawal',sans-serif;font-weight:700;color:var(--text);letter-spacing:.02em;
@@ -102,8 +104,37 @@ body{
 .p-in{width:118px;min-height:32px;background:#0a0c10;border:1px solid rgba(217,180,91,.5);border-radius:20px;
   color:var(--text);font-family:'Tajawal';font-weight:700;font-size:13px;padding:0 12px;outline:none}
 
-.menu-btns{display:flex;flex-direction:column;gap:clamp(8px,1.9vmin,14px);width:min(340px,86vw)}
+/* ========== عمود القائمة (أزرار + إعلان + تذييل) ========== */
+.menu-col{display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.9vmin,14px);width:min(340px,86vw)}
+.menu-btns{display:flex;flex-direction:column;gap:clamp(8px,1.9vmin,14px);width:100%}
 .menu-btns .btn{width:100%}
+
+/* ================================================================
+   المساحة الإعلانية — بانر أفقي صغير بارتفاع ثابت لا يتمدد أبداً
+================================================================ */
+.ad-slot{position:relative;width:100%;max-width:340px;height:60px;flex:none;
+  background:linear-gradient(180deg,rgba(16,18,24,.7),rgba(9,11,16,.7));
+  border:1px dashed rgba(217,180,91,.2);border-radius:6px;
+  padding:3px 6px;overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.02),0 6px 16px rgba(0,0,0,.4);
+  transition:height .35s ease,opacity .35s ease,padding .35s ease,margin .35s ease}
+.ad-slot::before{content:"إعلان";position:absolute;top:2px;inset-inline-end:30px;
+  font-size:8px;color:var(--mut);letter-spacing:.1em;opacity:.6;pointer-events:none;z-index:1}
+.ad-close{position:absolute;top:3px;inset-inline-end:3px;width:20px;height:20px;border:0;cursor:pointer;
+  background:rgba(10,12,16,.85);color:var(--mut);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;
+  box-shadow:inset 0 0 0 1px rgba(217,180,91,.25);transition:.2s;z-index:2}
+.ad-close:hover{color:var(--gold-hi)}
+.ad-slot ins.adsbygoogle{display:block;width:100%;height:100%;max-height:100%}
+.ad-slot.hidden{height:0;padding:0;border-width:0;opacity:0;pointer-events:none}
+
+.menu-foot{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center}
+.priv-btn{display:inline-flex;align-items:center;gap:6px;
+  background:rgba(14,16,22,.7);border:1px solid rgba(217,180,91,.2);border-radius:20px;
+  color:var(--mut);font-size:11.5px;padding:6px 12px;cursor:pointer;transition:.2s;
+  font-family:'Tajawal',sans-serif;font-weight:500;backdrop-filter:blur(4px)}
+.priv-btn:hover{color:var(--gold-hi);border-color:rgba(217,180,91,.5)}
+.priv-btn svg{width:12px;height:12px}
 
 .panel{position:relative;width:min(430px,92vw);max-height:94vh;overflow-y:auto;scrollbar-width:none;
   background:linear-gradient(180deg,#181c24,#0d1015);
@@ -161,9 +192,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   .logo-wrap{animation:none;flex:none}
   .logo-wrap>svg{width:clamp(70px,30vh,150px)}
   .logo-title{font-size:clamp(18px,8vh,46px)}
-  .menu-btns{width:min(46vw,340px);gap:clamp(5px,1.5vh,12px)}
+  .menu-col{width:min(46vw,340px);gap:clamp(5px,1.5vh,12px)}
+  .menu-btns{gap:clamp(5px,1.5vh,12px)}
   .menu-btns .btn{min-height:clamp(36px,9vh,52px);font-size:clamp(11px,2.6vh,16px);padding:4px 12px;gap:7px}
   .menu-btns .btn svg{width:clamp(13px,3vh,20px);height:clamp(13px,3vh,20px)}
+  .ad-slot{height:44px;max-width:100%}
+  .ad-close{width:17px;height:17px;font-size:11px;top:2px;inset-inline-end:2px}
+  .ad-slot::before{font-size:7px;top:1px;inset-inline-end:24px}
+  .menu-foot{gap:6px}
+  .priv-btn{font-size:10px;padding:4px 10px}
   .profile{top:8px;inset-inline-start:8px;padding:4px 10px 4px 6px}
   .p-av{width:30px;height:30px}
   .p-nm{font-size:12px;max-width:100px}
@@ -194,11 +231,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 }
 @media (orientation:landscape) and (max-height:420px){
   .logo-rule{display:none}
+  .ad-slot{height:38px}
 }
 
-/* ================================================================
-   HUD اللعبة — Grid متماثل بدون تداخل أبداً
-================================================================ */
+/* === HUD === */
 .hud-top{position:absolute;top:max(10px,env(safe-area-inset-top));left:0;right:0;
   display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
   align-items:center;gap:clamp(6px,1.6vw,14px);
@@ -257,11 +293,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 .timer-txt.warn{color:var(--danger)}
 @keyframes timerPulse{0%,100%{opacity:1}50%{opacity:.45}}
 
-/* أزرار التحكم: صف سفلي متمركز في كل الاتجاهات */
 .hud-bottom{position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:0;right:0;
   display:flex;justify-content:center;align-items:center;gap:clamp(8px,1.6vmin,13px);flex-wrap:nowrap;padding:0 8px}
 
-/* الشات أسفل اليسار */
 .chat-box{position:absolute;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));
   display:flex;gap:6px;align-items:center;z-index:14;opacity:.95;transition:opacity .3s}
 .chat-box:focus-within{opacity:1}
@@ -276,18 +310,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 .chat-send:hover{filter:brightness(1.1)}
 .chat-send:active{transform:scale(.94)}
 
-/* ---------- وضع عمودي: الشات فوق صف الأزرار ---------- */
 @media (max-width:767px) and (orientation:portrait){
   .chat-box{bottom:calc(72px + env(safe-area-inset-bottom))}
 }
-/* ---------- وضع عرضي: كل شيء مضغوط ومتماثل ---------- */
 @media (orientation:landscape){
   .hud-top{top:max(8px,env(safe-area-inset-top))}
   .chat-box{bottom:max(12px,env(safe-area-inset-bottom))}
   .orbit-hint{bottom:calc(66px + env(safe-area-inset-bottom))}
 }
 @media (orientation:landscape) and (max-width:900px){
-  /* شاشة عرضية ضيقة: الشات فوق الأزرار حتى لا تزاحمها */
   .chat-box{bottom:calc(64px + env(safe-area-inset-bottom))}
   .chat-in{width:min(150px,30vw);min-height:32px;font-size:12px}
   .chat-send{width:32px;height:32px}
@@ -320,6 +351,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   .timer-circle{width:38px;height:38px}
   .timer-txt{font-size:12px}
   .cbub{max-width:min(190px,52vw);font-size:11px;padding:5px 9px}
+  .ad-slot{height:54px}
 }
 
 .ov{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;padding:20px;
@@ -369,6 +401,44 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   font-size:11.5px;color:var(--mut);opacity:0;transition:opacity .8s;pointer-events:none;z-index:10;white-space:nowrap;
   text-shadow:0 1px 4px #000}
 .orbit-hint.show{opacity:1}
+
+/* ========== سياسة الخصوصية ========== */
+.priv-card{position:relative;text-align:start;width:min(640px,94vw);max-height:92vh;
+  background:linear-gradient(180deg,#161a22,#0b0d12);border:1px solid rgba(217,180,91,.35);border-radius:8px;
+  box-shadow:0 40px 120px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06);
+  transform:translateY(14px);transition:transform .5s cubic-bezier(.2,.9,.3,1.2);
+  display:flex;flex-direction:column;overflow:hidden}
+.ov.show .priv-card{transform:none}
+.priv-head{padding:clamp(14px,3vmin,22px) clamp(16px,4vmin,26px) clamp(10px,2vmin,16px);
+  border-bottom:1px solid rgba(217,180,91,.18);display:flex;align-items:center;gap:12px}
+.priv-head .title{font-family:'Reem Kufi',sans-serif;font-weight:700;font-size:clamp(16px,3.4vmin,21px);color:var(--gold-hi)}
+.priv-head .sub{font-size:11px;color:var(--mut);margin-top:2px}
+.priv-body{padding:clamp(14px,3vmin,22px) clamp(16px,4vmin,26px);overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:rgba(217,180,91,.3) transparent;flex:1;
+  font-size:clamp(12.5px,2.3vmin,14.5px);line-height:1.9;color:var(--text)}
+.priv-body::-webkit-scrollbar{width:6px}
+.priv-body::-webkit-scrollbar-thumb{background:rgba(217,180,91,.3);border-radius:3px}
+.priv-body h3{font-family:'Reem Kufi',sans-serif;color:var(--gold-hi);font-size:clamp(13.5px,2.6vmin,15.5px);
+  margin:clamp(10px,2.2vmin,16px) 0 6px;padding-inline-start:12px;position:relative}
+.priv-body h3::before{content:"";position:absolute;inset-inline-start:0;top:50%;transform:translateY(-50%);
+  width:4px;height:16px;background:linear-gradient(180deg,var(--gold),var(--gold-dk));border-radius:2px}
+.priv-body p{margin:4px 0 8px;color:#d6d2c6}
+.priv-body ul{list-style:none;padding-inline-start:0;margin:6px 0 10px}
+.priv-body li{position:relative;padding-inline-start:18px;margin:4px 0;color:#d6d2c6}
+.priv-body li::before{content:"◈";position:absolute;inset-inline-start:0;color:var(--gold);font-size:10px;top:4px}
+.priv-body a{color:var(--gold-hi);text-decoration:none;border-bottom:1px dotted rgba(217,180,91,.4)}
+.priv-body a:hover{border-bottom-color:var(--gold-hi)}
+.priv-foot{padding:clamp(10px,2vmin,16px) clamp(16px,4vmin,26px);
+  border-top:1px solid rgba(217,180,91,.18);display:flex;justify-content:flex-end}
+.priv-close{position:absolute;top:max(12px,env(safe-area-inset-top));inset-inline-end:12px;
+  width:clamp(34px,6vmin,42px);height:clamp(34px,6vmin,42px);border:0;cursor:pointer;
+  background:linear-gradient(180deg,rgba(40,46,60,.9),rgba(14,17,24,.9));
+  color:var(--gold-hi);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 0 0 1px rgba(217,180,91,.35),0 6px 14px rgba(0,0,0,.5);transition:.2s;z-index:2}
+.priv-close:hover{filter:brightness(1.25)}
+.priv-close svg{width:clamp(16px,3vmin,20px);height:clamp(16px,3vmin,20px)}
+#ov-privacy{background:rgba(3,4,7,.72)}
 </style>
 </head>
 <body>
@@ -399,6 +469,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
     <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5l2 5.2 5.5 1.8-5.5 1.8-2 5.2-2-5.2L4.5 9.5 10 7.7z" fill="currentColor"/><path d="M19 14l1 2.6 2.5.9-2.5.9-1 2.6-1-2.6-2.5-.9 2.5-.9z" fill="currentColor" opacity=".7"/><path d="M5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" fill="currentColor" opacity=".5"/></symbol>
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M3.5 11.5L20.5 3.5l-7 17.5-2.5-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M11 14l9.5-10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20l4.5-1L20 7.5 16.5 4 5 15.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M13.5 7l3.5 3.5" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></symbol>
   </defs>
 </svg>
 
@@ -434,12 +506,33 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
     <div class="logo-title">TITAN <b>XO</b></div>
     <div class="logo-rule"></div>
   </div>
-  <div class="menu-btns">
-    <button class="btn btn-gold" id="b-play"><svg><use href="#i-net"/></svg>اللعب أونلاين</button>
-    <button class="btn" id="b-match"><svg><use href="#i-spark"/></svg>بحث عن لاعب عشوائي</button>
-    <button class="btn" id="b-join"><svg><use href="#i-link"/></svg>الانضمام لغرفة</button>
-    <button class="btn" id="b-local"><svg><use href="#i-users"/></svg>لعب مع صديق — نفس الجهاز</button>
-    <button class="btn" id="b-settings"><svg><use href="#i-gear"/></svg>الإعدادات</button>
+
+  <div class="menu-col">
+    <div class="menu-btns">
+      <button class="btn btn-gold" id="b-play"><svg><use href="#i-net"/></svg>اللعب أونلاين</button>
+      <button class="btn" id="b-match"><svg><use href="#i-spark"/></svg>بحث عن لاعب عشوائي</button>
+      <button class="btn" id="b-join"><svg><use href="#i-link"/></svg>الانضمام لغرفة</button>
+      <button class="btn" id="b-local"><svg><use href="#i-users"/></svg>لعب مع صديق — نفس الجهاز</button>
+      <button class="btn" id="b-settings"><svg><use href="#i-gear"/></svg>الإعدادات</button>
+    </div>
+
+    <!-- بانر إعلاني أفقي صغير بارتفاع ثابت -->
+    <div class="ad-slot" id="ad-slot">
+      <button class="ad-close" id="ad-close" title="إخفاء الإعلان">×</button>
+      <ins class="adsbygoogle"
+           style="display:block;width:100%;height:100%"
+           data-ad-client="ca-pub-6950701807391900"
+           data-ad-slot="auto"
+           data-ad-format="horizontal"
+           data-full-width-responsive="false"></ins>
+    </div>
+
+    <div class="menu-foot">
+      <button class="priv-btn" id="b-privacy">
+        <svg><use href="#i-shield"/></svg>
+        سياسة الخصوصية
+      </button>
+    </div>
   </div>
 </section>
 
@@ -597,14 +690,68 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   </div>
 </div>
 
+<div class="ov" id="ov-privacy">
+  <div class="priv-card">
+    <button class="priv-close" id="priv-close" title="إغلاق"><svg><use href="#i-close"/></svg></button>
+    <div class="priv-head">
+      <svg style="width:28px;height:28px;color:var(--gold-hi);flex:none"><use href="#i-shield"/></svg>
+      <div>
+        <div class="title">سياسة الخصوصية</div>
+        <div class="sub">TITAN XO — آخر تحديث: 1 نوفمبر 2026</div>
+      </div>
+    </div>
+    <div class="priv-body">
+      <p>نحن في TITAN XO نحترم خصوصية اللاعبين ونعمل على حماية المعلومات التي تتم معالجتها أثناء استخدام اللعبة.</p>
+
+      <h3>1. المعلومات التي قد نجمعها</h3>
+      <p>قد تتم معالجة بعض المعلومات اللازمة لتشغيل اللعبة، ومنها:</p>
+      <ul>
+        <li>اسم اللاعب المستعار الذي يختاره.</li>
+        <li>الرسائل التي يرسلها اللاعب عبر المحادثة داخل اللعبة.</li>
+        <li>معلومات تقنية تتعلق بالاتصال باللعبة، مثل عنوان IP، بحسب خدمات الاتصال والاستضافة المستخدمة.</li>
+        <li>بيانات الاستخدام اللازمة لتحسين أداء اللعبة.</li>
+      </ul>
+
+      <h3>2. المحادثات داخل اللعبة</h3>
+      <p>تتيح TITAN XO للاعبين التواصل عبر الدردشة النصية أثناء اللعب. يرجى عدم مشاركة كلمات المرور أو أرقام الهواتف أو المعلومات الشخصية الحساسة في المحادثة.</p>
+
+      <h3>3. الإعلانات وملفات تعريف الارتباط</h3>
+      <p>قد نستخدم خدمات إعلانية تابعة لجهات خارجية، مثل Google AdSense، لعرض الإعلانات داخل اللعبة.</p>
+      <p>قد تستخدم هذه الجهات ملفات تعريف الارتباط وتقنيات مشابهة لتقديم الإعلانات وقياس أدائها، وفقاً لسياسات الخصوصية الخاصة بها.</p>
+      <p>معلومات Google الإعلانية:
+        <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>
+      </p>
+
+      <h3>4. مشاركة المعلومات</h3>
+      <p>لا نبيع المعلومات الشخصية للاعبين. وقد تتم معالجة بعض البيانات بواسطة مزودي خدمات الاستضافة والاتصال والإعلانات اللازمة لتشغيل اللعبة.</p>
+
+      <h3>5. حماية المعلومات</h3>
+      <p>نعمل على اتخاذ تدابير مناسبة لحماية المعلومات من الوصول غير المصرح به أو الاستخدام غير المشروع.</p>
+
+      <h3>6. خصوصية الأطفال</h3>
+      <p>لا تشارك معلوماتك الشخصية في المحادثات. ويجب على أولياء الأمور الإشراف على استخدام الأطفال للعبة.</p>
+
+      <h3>7. التغييرات على سياسة الخصوصية</h3>
+      <p>قد يتم تحديث هذه السياسة عند إضافة ميزات جديدة أو تغيير طريقة عمل اللعبة.</p>
+
+      <h3>8. التواصل</h3>
+      <p>للاستفسارات المتعلقة بالخصوصية، يمكن التواصل معنا عبر:</p>
+      <p>البريد الإلكتروني: <a href="mailto:unique2003228@gmail.com">unique2003228@gmail.com</a></p>
+    </div>
+    <div class="priv-foot">
+      <button class="btn btn-gold btn-sm" id="priv-ok">فهمت</button>
+    </div>
+  </div>
+</div>
+
 <div id="toasts"></div>
 <div id="fatal"><div>تعذّر تشغيل اللعبة.<br>تأكد من اتصال الإنترنت لتحميل مكتبات العرض، ومن دعم متصفحك لتقنية WebGL.</div></div>
 
 <script>
 "use strict";
 /* ================================================================
-   TITAN XO 3D — v4.4
-   HUD Grid متماثل: لا تداخل للأسماء الطويلة ولا ميلان بالعرضي
+   TITAN XO 3D — v4.6
+   الإعلان بانر أفقي صغير بارتفاع ثابت (لا يتمدد عمودياً أبداً)
 ================================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -1505,9 +1652,6 @@ const Scene3D=(()=>{
   return{init,placePiece,setHover,setLast,showWinLine,setEndLight,clearPieces,setMetal,applyQuality,pick,setView};
 })();
 
-/* ================================================================
-   مؤقت 30 ثانية
-================================================================ */
 const Timer={
   remaining:30,max:30,active:false,
   C:2*Math.PI*22,
@@ -1554,9 +1698,6 @@ const Chat={
   }
 };
 
-/* ================================================================
-   اللعبة
-================================================================ */
 const Game={
   mode:null,board:Array(9).fill(null),turn:'X',active:false,myMark:null,
   starter:'X',round:1,scores:{X:0,O:0,D:0},last:-1,lastRestart:0,
@@ -1670,9 +1811,6 @@ const Game={
   }
 };
 
-/* ================================================================
-   HUD
-================================================================ */
 const HUD={
   setup(nx,no,mode,myMark){
     $('#nm-x').textContent=nx;$('#nm-o').textContent=no;
@@ -1721,9 +1859,6 @@ const HUD={
   hideOverlays(){$('#ov-result').classList.remove('show');$('#ov-disc').classList.remove('show');}
 };
 
-/* ================================================================
-   الشبكة + البحث العشوائي
-================================================================ */
 const PREFIX='titanxo3d-v4-';
 const LPREFIX='titanxo3d-v4-L';
 const LOBBIES=12;
@@ -2044,6 +2179,13 @@ function toggleFS(){
   }
 }
 
+function initAdSlot(){
+  try{
+    if(typeof(adsbygoogle)==='undefined')return;
+    (adsbygoogle=window.adsbygoogle||[]).push({});
+  }catch(e){}
+}
+
 /* ================================================================
    الربط
 ================================================================ */
@@ -2090,6 +2232,19 @@ function toggleFS(){
   $('#b-join').onclick=()=>{AudioFX.click();UI.show('scr-join');};
   $('#b-local').onclick=()=>{AudioFX.click();UI.show('scr-local');};
   $('#b-settings').onclick=()=>{AudioFX.click();UI.show('scr-settings');};
+
+  $('#ad-close').addEventListener('click',e=>{
+    e.stopPropagation();
+    AudioFX.click();
+    $('#ad-slot').classList.add('hidden');
+  });
+
+  const openPriv=()=>{AudioFX.click();$('#ov-privacy').classList.add('show');};
+  const closePriv=()=>{AudioFX.click();$('#ov-privacy').classList.remove('show');};
+  $('#b-privacy').addEventListener('click',openPriv);
+  $('#priv-close').addEventListener('click',closePriv);
+  $('#priv-ok').addEventListener('click',closePriv);
+  $('#ov-privacy').addEventListener('click',e=>{if(e.target.id==='ov-privacy')closePriv();});
 
   $('#load-cancel').onclick=()=>{AudioFX.click();Net.destroy();UI.loaded();UI.show('scr-menu');};
 
@@ -2158,6 +2313,9 @@ function toggleFS(){
     UI.show('scr-join');
     history.replaceState(null,'',location.pathname);
   }
+
+  if(document.readyState==='complete'){initAdSlot();}
+  else{addEventListener('load',initAdSlot);}
 })();
 
 (function boot(){
